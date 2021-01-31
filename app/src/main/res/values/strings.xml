@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DevelopersLife</string>
+    <string name="name">Developers Life</string>
+    <string name="latest">Последние</string>
+    <string name="best">Лучшие</string>
+    <string name="hot">Горячие</string>
+</resources>
