@@ -10,14 +10,68 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <include
+            android:id="@+id/post"
+            layout="@layout/item_post"
+            android:layout_width="@dimen/dim_0"
+            android:layout_height="@dimen/dim_0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btns_layout" />
+
+        <LinearLayout
+            android:id="@+id/btns_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="HOT"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/previous"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_8"
+                app:backgroundTint="@color/white"
+                app:tint="@color/orange"
+                android:scaleX="-1"
+                android:src="@drawable/ic_baseline_refresh_24" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dim_8"
+                app:backgroundTint="@color/white"
+                app:tint="@color/green"
+                android:scaleX="1"
+                android:src="@drawable/ic_baseline_arrow_forward_24" />
+
+        </LinearLayout>
+
+        <include
+            android:id="@+id/error"
+            layout="@layout/connection_error"
+            android:layout_width="@dimen/dim_0"
+            android:layout_height="@dimen/dim_0"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <include
+            android:id="@+id/not_found"
+            layout="@layout/empty_data"
+            android:layout_width="@dimen/dim_0"
+            android:layout_height="@dimen/dim_0"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

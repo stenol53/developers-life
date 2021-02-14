@@ -4,4 +4,8 @@
     <string name="latest">Последние</string>
     <string name="best">Лучшие</string>
     <string name="hot">Горячие</string>
+    <string name="random">Случайные</string>
+    <string name="load_error">Произошла ошибка при загрузке данных, проверьте подключение к сети</string>
+    <string name="repeat">Повторить</string>
+    <string name="not_found">Не найдено записей.</string>
 </resources>

@@ -1,5 +1,8 @@
 package com.voak.android.developerslife.view.base
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.ColorRes
@@ -39,4 +42,27 @@ abstract class BaseFragment: Fragment() {
         }
     }
 
+    protected fun checkNetworkConnection(): Boolean {
+        val manager = (requireActivity().getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager)
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            val network =  manager?.activeNetwork
+            val capabilities = manager?.getNetworkCapabilities(network)
+            when {
+                capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true -> return true
+                capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) == true -> return true
+                capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET) == true -> return true
+                else -> {}
+            }
+        } else {
+            manager?.activeNetworkInfo?.run {
+                when(type) {
+                    ConnectivityManager.TYPE_WIFI -> return true
+                    ConnectivityManager.TYPE_MOBILE -> return true
+                    ConnectivityManager.TYPE_ETHERNET -> return true
+                    else -> {}
+                }
+            }
+        }
+        return false
+    }
 }

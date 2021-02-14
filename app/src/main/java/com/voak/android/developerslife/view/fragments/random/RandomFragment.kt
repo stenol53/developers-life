@@ -1,4 +1,4 @@
-package com.voak.android.developerslife.view.fragments.latest
+package com.voak.android.developerslife.view.fragments.random
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -14,22 +14,22 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.voak.android.developerslife.databinding.FragmentLatestBinding
+import com.voak.android.developerslife.databinding.FragmentRandomBinding
 import com.voak.android.developerslife.models.Post
 import com.voak.android.developerslife.view.base.BaseFragment
 import kotlinx.android.synthetic.main.connection_error.view.*
 import kotlinx.android.synthetic.main.item_post.view.*
 
-class LatestFragment : BaseFragment() {
-    private lateinit var binding: FragmentLatestBinding
+class RandomFragment : BaseFragment() {
+    private lateinit var binding: FragmentRandomBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLatestBinding.inflate(inflater, container, false)
-        binding.viewModel = ViewModelProvider(this).get(LatestViewModel::class.java)
+        binding = FragmentRandomBinding.inflate(inflater, container, false)
+        binding.viewModel = ViewModelProvider(this).get(RandomViewModel::class.java)
 
         return binding.root
     }
@@ -132,10 +132,10 @@ class LatestFragment : BaseFragment() {
     }
 
     companion object {
-        fun newInstance(): LatestFragment {
+        fun newInstance(): RandomFragment {
             val args = Bundle()
 
-            val fragment = LatestFragment()
+            val fragment = RandomFragment()
             fragment.arguments = args
             return fragment
         }

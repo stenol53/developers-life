@@ -29,9 +29,10 @@ class MainFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             when(position) {
-                0 -> tab.text = getString(R.string.latest)
-                1 -> tab.text = getString(R.string.best)
-                2 -> tab.text = getString(R.string.hot)
+                0 -> tab.text = getString(R.string.random)
+                1 -> tab.text = getString(R.string.latest)
+                2 -> tab.text = getString(R.string.best)
+                3 -> tab.text = getString(R.string.hot)
             }
         }.attach()
     }
